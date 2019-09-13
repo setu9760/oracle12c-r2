@@ -4,7 +4,7 @@ set -e
 source /assets/colorecho
 source ~/.bashrc
 
-alert_log="$ORACLE_BASE/diag/rdbms/tlmdb/$ORACLE_SID/trace/alert_$ORACLE_SID.log"
+alert_log="$ORACLE_BASE/diag/rdbms/orcl/$ORACLE_SID/trace/alert_$ORACLE_SID.log"
 listener_log="$ORACLE_BASE/diag/tnslsnr/$HOSTNAME/listener/trace/listener.log"
 pfile=$ORACLE_HOME/dbs/init$ORACLE_SID.ora
 
@@ -48,7 +48,7 @@ create_db() {
 	#MON_LSNR_PID=$!
         echo "START DBCA"
     netca /silent -responsefile /opt/oracle/app/product/12.2.0/dbhome_1/assistants/netca/netca.rsp
-	dbca -createdatabase -silent -templateName General_Purpose.dbc -gdbname tlmdb -Sid tlmdb -memoryPercentage 10 -sysPassword password -systemPassword password -databaseType MULTIPURPOSE -listeners LISTENER
+	dbca -createdatabase -silent -templateName General_Purpose.dbc -gdbname orcl -Sid orcl -memoryPercentage 10 -sysPassword password -systemPassword password -databaseType MULTIPURPOSE -listeners LISTENER
 	echo_green "Database created."
 	date "+%F %T"
 	change_dpdump_dir
