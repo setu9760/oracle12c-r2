@@ -31,3 +31,4 @@ To execute impdp/expdp just use docker exec command:
 ```sh
 docker exec -it oracle11g impdp ..
 ```
+This repository is inspired by work from https://github.com/jaspeen/oracle-11g
